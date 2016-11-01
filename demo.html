@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="format-detection" content="telephone=no">
+	<title>MoveFadeIn</title>
+	<style>
+		div{width: 200px;height: 200px;position: absolute;top: 50px;z-index: 9}
+		.red{background-color: red;left: 0}
+		.blue{background-color: blue;left: 250px}
+		.yellow{background-color: yellow;left: 500px}
+	</style>
+</head>
+<body>
+	<div class="red"></div>
+
+	<div class="blue"></div>
+
+	<div class="yellow"></div>
+	<script src="jquery-1.12.3.min.js"></script>
+	<script src="MoveFadeIn.js"></script>
+	<script>
+		//需要对需要渐显元素做初始化 设置其opacity为0 可在动画时序中做相应初始化
+		$('div').css('opacity', 0);
+
+		jQuery(document).ready(function($) {
+			$('.red').MoveFadeIn('left','50px','easeOutQuart',function () {
+				$('.blue').MoveFadeIn('bottom','50px','easeOutQuart',function () {
+					$('.yellow').MoveFadeIn('right','50px','easeOutQuart',function () {
+
+					})
+				})
+			})
+		});
+		
+	</script>
+</body>
+</html>
